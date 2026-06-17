@@ -8,14 +8,81 @@ const errorCredenciales = "#login_button_container > div > form > div.error-mess
 class loginPage {
 
     /**
+     * Navegar dirrecion url
+     */
+    navegarDirrecion(url){
+        cy.visit(url, { failOnStatusCode: false });
+    }
+
+    /**
+     * validar mensaje
+     */
+
+    validarMensaje(texto){
+        cy.contains(texto).should('be.visible');
+    }
+    /**
+     * ingreso de contraseña
+     */
+    ingresoConstrasena(pass){
+        cy.get(inputPassword).should('be.visible').type(pass)
+    }
+
+    /**
+     * ingreso login sin usuario ni contrasena
+     */
+
+    loginVacio(){
+        cy.get(inputUsername).should('be.visible');
+        cy.get(inputPassword).should('be.visible');
+    }
+    
+    /**
      * Se ingresa al login de Saucedemo
      */
     ingresoLogin(url){
         cy.visit(url)
 
-        cy.get(inputUsername, {timeout:10000}).should('be.visible')
+        cy.get(inputUsername, {timeout:10000}).should('be.visible');
 
     }
+
+    /**
+     * Se valida el mensaje de error
+     */
+
+    validarMensajeError(){
+        cy.get(mensajeError, {timeout: 10000}).should('be.visible');
+    }
+
+    /**
+     * 
+     * @param {se valida la url ingresada} url 
+     */
+    validarUrl(url){
+        cy.url().should('include', url)
+    }
+
+    /**
+     * ingreso usuario
+     */
+
+    ingresoUsuario(usuario){
+        cy.get(inputUsername, {timeout: 10000}).should('be.visible').type(usuario);
+    }
+
+    /**
+     * Ingreso contraseña
+     */
+
+    ingresoContrasena(pass){
+        cy.get(inputPassword, {timeout: 10000}).should('be.visible').type(pass);
+    }
+
+    clicLogin(){
+        cy.get(btnLogin, {timeout: 10000}).should('be.visible').click();
+    }
+
     /**
      * Ingreso login 
      */
