@@ -52,3 +52,51 @@ Then('debería ver el mensaje de credenciales erróneas', () => {
 When('ingresa mal las credeciales', () =>{
   LoginPage.errorFalla()
 })
+
+Given('que el usuario ingresa el nombre de usuario {string}', (usuario) => {
+  LoginPage.ingresoUsuario(usuario);
+})
+
+When('el usuario ingresa la contraseña', () =>{
+  LoginPage.ingresoContrasena(datos.usuarioPositivo.pass)
+})
+
+When('el usuario hace clic en el boton de login', () =>{
+  LoginPage.clicLogin();
+})
+
+Then('el sistema redirige al usuario a {string}', (url) =>{
+  LoginPage.validarUrl(url)
+})
+
+Then('el sistema mostrara un mensaje de error', () =>{
+  LoginPage.validarMensajeError();
+})
+
+Given('que el campo de usuario está vacío', ()=>{
+  LoginPage.loginVacio();
+})
+
+When('el campo de contraseña está vacío', () =>{
+  LoginPage.loginVacio();
+})
+
+When('el usuario ingresa la contraseña {string}', (pass)=>{
+  LoginPage.ingresoConstrasena(pass)
+})
+
+Then('el sistema muestra el mensaje de error {string}', (texto) =>{
+  LoginPage.validarMensaje(texto);
+})
+
+Given('que el usuario no ha iniciado sesión', () => {
+  LoginPage.ingresoLogin(datos.url.url);
+})
+
+When('el usuario navega directamente a {string}',(url) =>{
+  LoginPage.navegarDirrecion(url);
+})
+
+Then('el sistema redirige al usuario a la página de login', ()=>{
+  LoginPage.ingresoLogin(datos.url.url)
+})
