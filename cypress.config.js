@@ -9,15 +9,8 @@ module.exports = defineConfig({
     viewportHeight: 1080,
     allowCypressEnv: true,
     specPattern: "cypress/e2e/**/*.feature",
-    reporter: "mochawesome",
-    screenshotOnRunFailure: true,  // ya viene true por defecto
+    screenshotOnRunFailure: true,
     screenshotsFolder: 'cypress/screenshots',
-    reporterOptions: {
-      reportDir: "cypress/reports",
-      overwrite: false,
-      html: false,
-      json: true,
-    },
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
       on(
