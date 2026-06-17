@@ -19,6 +19,3 @@ Característica: Login Saucedemo
   Escenario: Login con contraseña incorrecta
     Cuando ingresa credenciales incorrectas
     Entonces debería ver el mensaje de credenciales erróneas
-
-  Escenario: login falla 
-    Cuando ingresa mal las credeciales

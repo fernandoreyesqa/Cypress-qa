@@ -6,7 +6,7 @@ Característica: checkout Saucedemo
         Cuando ingresa credenciales válidas
 
     Escenario: Checkout - rellenar formulario
-        Cuando el usuario agrega un porducto al carro
+        Cuando El usuario agrega un producto al carro
         Y ingresa al carro de compra
         Y ingresa al checkout
         Entonces el usuario rellena el formulario
