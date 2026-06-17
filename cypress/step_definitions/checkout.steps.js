@@ -17,16 +17,3 @@ Before(() => {
   })
 })
 
-When('ingresa al carro de compra', () =>{
-    InventoryPage.ingresoIventary();
-    InventoryPage.agregarProductoAlCarro();
-    CarroPage.ingresoCarroCompra();
-})
-
-when('ingresa al checkout', () =>{
-    CarroPage.ingresoCheckout()
-})
-
-Then('el usuario rellena el formulario', ()=> {
-    CheckoutPage.ingresoDatos(datos.FormularioCheckout.firstName,datos.FormularioCheckout.inputLastName,datos.FormularioCheckout.inputPostalCode)
-})
