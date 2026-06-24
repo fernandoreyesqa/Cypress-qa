@@ -100,3 +100,4 @@ When('el usuario navega directamente a {string}',(url) =>{
 Then('el sistema redirige al usuario a la página de login', ()=>{
   LoginPage.ingresoLogin(datos.url.url)
 })
+
